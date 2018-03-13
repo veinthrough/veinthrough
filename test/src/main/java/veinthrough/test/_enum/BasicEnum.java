@@ -19,7 +19,7 @@ import veinthrough.test.AbstractUnitTester;
  * <p>
  * 1. How to write a effective Enum class.
  * <p>
- * 2. Use Enum in switch.
+ * 2. How to use Enum in switch.
  *
  */
 public class BasicEnum extends AbstractUnitTester {
