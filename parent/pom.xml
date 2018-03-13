@@ -30,6 +30,7 @@
     <enforcer.version>1.4.1</enforcer.version>
     
     <guava.version>19.0</guava.version>
+    <apache.commons.lang3.version>3.7</apache.commons.lang3.version>
     <lombok.version>1.16.20</lombok.version>
     <slf4j.log4j12.version>1.7.25</slf4j.log4j12.version>
   </properties>
@@ -40,6 +41,11 @@
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${guava.version}</version>
+    </dependency>
+    <dependency>
+   	  <groupId>org.apache.commons</groupId>
+   	  <artifactId>commons-lang3</artifactId>
+   	  <version>${apache.commons.lang3.version}</version>
     </dependency>
     <dependency>
 	  <groupId>org.projectlombok</groupId>

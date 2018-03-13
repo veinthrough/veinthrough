@@ -8,6 +8,7 @@ package veinthrough.test;
  */
 public interface UnitTester {
     UnitTester setArgs( String[] args);
+    String[] getArgs();
 
     /**
      * all unit testers should implement this interface.

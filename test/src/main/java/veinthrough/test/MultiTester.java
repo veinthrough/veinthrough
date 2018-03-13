@@ -4,26 +4,19 @@ package veinthrough.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.veinthrough.test.env.CheckForClass;
-import com.veinthrough.test.env.GetEnv;
-import com.veinthrough.test.env.SysProp;
-
 /**
  * @author veinthrough
  */
 public class MultiTester {
-
-    /**
-     * a list of all testers to be executed.
-     */
-    List<UnitTester> unitTesters= new ArrayList<>();
+    private List<UnitTester> unitTesters= new ArrayList<>();
 
     public static void main(String[] args) {
         MultiTester tester= new MultiTester();
 
-        tester.add( new GetEnv());
-        tester.add( new SysProp().setArgs( args));
-        tester.add( new CheckForClass().setArgs( args));
+        //
+        //tester.add( new GetEnv());
+        //tester.add( new SysProp().setArgs( args));
+        //tester.add( new CheckForClass().setArgs( args));
 
         tester.test();
     }
