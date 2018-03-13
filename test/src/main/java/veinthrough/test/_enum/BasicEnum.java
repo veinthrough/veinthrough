@@ -13,12 +13,18 @@ import org.apache.commons.lang3.tuple.Pair;
 import veinthrough.test.AbstractUnitTester;
 
 /**
- * @author 鹏
+ * @author veinthrough
+ * <p>
+ * Test contains:
+ * <p>
+ * 1. How to write a effective Enum class.
+ * <p>
+ * 2. Use Enum in switch.
  *
  */
 public class BasicEnum extends AbstractUnitTester {
 
-    /* (non-Javadoc)
+    /*
      * @see veinthrough.test.UnitTester#test()
      */
     @Override
