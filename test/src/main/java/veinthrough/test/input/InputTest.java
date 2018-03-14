@@ -46,9 +46,6 @@ public class InputTest extends AbstractUnitTester {
         System.out.println( String.format("User name:%s, password:%s", username, passwd));
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         new InputTest().test();
 

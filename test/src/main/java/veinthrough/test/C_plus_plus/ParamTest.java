@@ -76,9 +76,6 @@ public class ParamTest extends AbstractUnitTester {
         System.out.println("End of method: y=" + y.getName());
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         new ParamTest().test();
     }
