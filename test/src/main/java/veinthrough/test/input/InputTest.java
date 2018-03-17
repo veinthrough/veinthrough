@@ -26,15 +26,16 @@ public class InputTest extends AbstractUnitTester {
      */
     @Override
     public void test() {
-        Scanner in = new Scanner(System.in);
+        //try with resources
+        try(Scanner in = new Scanner(System.in)) {
+            System.out.print("Name:");
+            String name = in.nextLine();
 
-        System.out.print("Name:");
-        String name = in.nextLine();
+            System.out.print("Age:");
+            Integer age = in.nextInt();
 
-        System.out.print("Age:");
-        Integer age = in.nextInt();
-
-        System.out.println( String.format("Name:%s, Age:%d", name, age));
+            System.out.println( String.format("Name:%s, Age:%d", name, age));
+        }
 
         //caution: console == null
         //it doesn't hava a console as eclipse run in Javaw mode

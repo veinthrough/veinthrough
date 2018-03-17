@@ -29,10 +29,11 @@ public class ReflectionTest extends AbstractUnitTester {
         if (args != null && args.length > 0) name = args[0];
         else
         {
-            Scanner in = new Scanner(System.in);
-            System.out.println("Enter class name (e.g. java.util.Date): ");
-            name = in.next();
-            in.close();
+            //try with resources
+            try(Scanner in = new Scanner(System.in)) {
+                System.out.println("Enter class name (e.g. java.util.Date): ");
+                name = in.next();
+            }
         }
 
         try
