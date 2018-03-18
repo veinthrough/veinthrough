@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
 
+import lombok.Data;
+
+@Data
 public class Employee
 {
     private String name;
@@ -16,21 +19,6 @@ public class Employee
         salary = s;
         GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
         hireDay = calendar.getTime();
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public double getSalary()
-    {
-        return salary;
-    }
-
-    public Date getHireDay()
-    {
-        return hireDay;
     }
 
     public void raiseSalary(double byPercent)

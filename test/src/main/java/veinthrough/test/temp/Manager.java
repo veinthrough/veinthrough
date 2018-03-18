@@ -1,5 +1,8 @@
 package veinthrough.test.temp;
 
+import lombok.Data;
+
+@Data
 public class Manager extends Employee
 {
     private double bonus;
@@ -16,11 +19,7 @@ public class Manager extends Employee
         return baseSalary + bonus;
     }
 
-    public void setBonus(double b)
-    {
-        bonus = b;
-    }
-
+    @Override
     public boolean equals(Object otherObject)
     {
         if (!super.equals(otherObject)) return false;
@@ -29,11 +28,13 @@ public class Manager extends Employee
         return bonus == other.bonus;
     }
 
+    @Override
     public int hashCode()
     {
         return super.hashCode() + 17 * new Double(bonus).hashCode();
     }
 
+    @Override
     public String toString()
     {
         return super.toString() + "[bonus=" + bonus + "]";
