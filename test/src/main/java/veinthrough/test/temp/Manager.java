@@ -1,4 +1,4 @@
-package veinthrough.test.equals;
+package veinthrough.test.temp;
 
 public class Manager extends Employee
 {

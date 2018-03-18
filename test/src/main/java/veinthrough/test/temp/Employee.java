@@ -1,4 +1,4 @@
-package veinthrough.test.equals;
+package veinthrough.test.temp;
 
 import java.util.Date;
 import java.util.GregorianCalendar;

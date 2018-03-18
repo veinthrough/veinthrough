@@ -1,6 +1,8 @@
 package veinthrough.test.equals;
 
 import veinthrough.test.AbstractUnitTester;
+import veinthrough.test.temp.Employee;
+import veinthrough.test.temp.Manager;
 
 /**
  * This program demonstrates the equals method.
