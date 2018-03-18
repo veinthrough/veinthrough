@@ -12,7 +12,7 @@ import veinthrough.test.AbstractUnitTester;
 
 /**
  * @author veinthrough
- *
+ * <p>
  * skeleton:
  * <p>
  * 1. Can traverse list all the same when modifying(add/remove) the list.
