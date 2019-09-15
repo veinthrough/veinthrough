@@ -3,7 +3,6 @@
  */
 package veinthrough.test._enum;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import com.google.common.collect.ImmutableMap;
@@ -11,6 +10,7 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 import veinthrough.test.AbstractUnitTester;
+import com.google.common.collect.Lists;
 
 /**
  * @author veinthrough
@@ -34,6 +34,15 @@ public class BasicEnum extends AbstractUnitTester {
         testForValue(50);
         testForValue(100);
 
+        //Use guava collect to new a ArrayList
+        List<SIZE> sizes = Lists.newArrayList(
+            SIZE.TOO_SMALL,
+            SIZE.SMALL,
+            SIZE.MEDIUM,
+            SIZE.LARGE,
+            SIZE.EXTRA_LARGE,
+            SIZE.TOO_LARGE);
+        /*
         List<SIZE> sizes = new ArrayList<SIZE>(){{
             add(SIZE.TOO_SMALL);
             add(SIZE.SMALL);
@@ -42,6 +51,7 @@ public class BasicEnum extends AbstractUnitTester {
             add(SIZE.EXTRA_LARGE);
             add(SIZE.TOO_LARGE);
         }};
+        */
         System.out.println();
 
         for(SIZE size : sizes) {
@@ -65,7 +75,7 @@ public class BasicEnum extends AbstractUnitTester {
     }
 
     public static enum SIZE {
-        TOO_SMALL(Integer.MIN_VALUE, 1),
+        TOO_SMALL(0, 1),
         SMALL(1, 10),
         MEDIUM(10, 20),
         LARGE(20, 50),
