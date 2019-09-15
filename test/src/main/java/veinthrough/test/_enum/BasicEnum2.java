@@ -1,18 +1,14 @@
-/**
- *
- */
 package veinthrough.test._enum;
 
+import veinthrough.test.AbstractUnitTester;
 import java.util.List;
 import java.util.Map;
+
 import com.google.common.collect.ImmutableMap;
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
-
-import veinthrough.test.AbstractUnitTester;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Range;
 
-/**
+/*
  * @author veinthrough
  * <p>
  * Test contains:
@@ -20,14 +16,9 @@ import com.google.common.collect.Lists;
  * 1. How to write a effective Enum class.
  * <p>
  * 2. How to use Enum in switch.
- *
  */
-@Deprecated
-public class BasicEnum extends AbstractUnitTester {
+public class BasicEnum2 extends AbstractUnitTester {
 
-    /*
-     * @see veinthrough.test.UnitTester#test()
-     */
     @Override
     public void test() {
         testForValue(0);
@@ -43,16 +34,6 @@ public class BasicEnum extends AbstractUnitTester {
             SIZE.LARGE,
             SIZE.EXTRA_LARGE,
             SIZE.TOO_LARGE);
-        /*
-        List<SIZE> sizes = new ArrayList<SIZE>(){{
-            add(SIZE.TOO_SMALL);
-            add(SIZE.SMALL);
-            add(SIZE.MEDIUM);
-            add(SIZE.LARGE);
-            add(SIZE.EXTRA_LARGE);
-            add(SIZE.TOO_LARGE);
-        }};
-        */
         System.out.println();
 
         for(SIZE size : sizes) {
@@ -64,6 +45,7 @@ public class BasicEnum extends AbstractUnitTester {
                 System.out.println(size.toString());
             }
         }
+
     }
 
     private static void testForValue(Integer value) {
@@ -71,11 +53,12 @@ public class BasicEnum extends AbstractUnitTester {
         System.out.println("" + value + " is " + size.name());
     }
 
+
     public static void main(String[] args) {
-        new BasicEnum().test();
+        new BasicEnum2().test();
     }
 
-    private enum SIZE {
+    public enum SIZE {
         TOO_SMALL(0, 1),
         SMALL(1, 10),
         MEDIUM(10, 20),
@@ -84,45 +67,41 @@ public class BasicEnum extends AbstractUnitTester {
         TOO_LARGE(100, Integer.MAX_VALUE)
         ;
 
-        private Pair<Integer,Integer> scope;
-        private static final Map<Integer,SIZE> VALUE_MAP;
+        private Range<Integer> scope;
+        private static final Map<Range<Integer>,SIZE> VALUE_MAP;
 
         static {
-            final ImmutableMap.Builder<Integer, SIZE> lefts = ImmutableMap.builder();
+            final ImmutableMap.Builder<Range<Integer>, SIZE> sizes = ImmutableMap.builder();
             for(SIZE enumItem : SIZE.values()) {
-                lefts.put(enumItem.getScope().getLeft(), enumItem);
+                sizes.put(enumItem.getScope(), enumItem);
             }
-            VALUE_MAP = lefts.build();
+            VALUE_MAP = sizes.build();
         }
 
-        private SIZE(Integer mininum, Integer maximum) {
-            this.scope = ImmutablePair.of(mininum, maximum);
+        private SIZE(Integer min, Integer max) {
+            this.scope = Range.closedOpen(min, max);
         }
-
         public String getScopeString() {
-            return "[" + this.scope.getLeft() + "," +
-                         this.scope.getRight() +
+            return this.scope.toString();
+            /*
+            return "[" + this.scope.lowerEndpoint() + "," +
+                         this.scope.upperEndpoint() +
                    ")";
+                   */
         }
-
         @Override
         public String toString() {
             return this.name().toLowerCase() + getScopeString();
         }
-
-        public Pair<Integer,Integer> getScope() {
+        public Range<Integer> getScope() {
             return this.scope;
         }
-
         public static SIZE forValue(Integer value) {
             return VALUE_MAP.get(
                     VALUE_MAP.keySet().stream()
-                        .filter(left -> left<=value)
-                        .max(Integer::compare)
+                        .filter(scope -> scope.contains(value))
+                        .findFirst()
                         .get());
         }
     }
-
-
-
 }
