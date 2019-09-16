@@ -13,12 +13,15 @@ import com.google.common.collect.Range;
  * <p>
  * Test contains:
  * <p>
- * 1. How to write a effective Enum class.
+ * 1. How to write a effective enum class.
  * <p>
- * 2. How to use Enum in switch.
+ * 2. How to use enum in switch.
  */
 public class BasicEnum2 extends AbstractUnitTester {
 
+    /*
+     * @see veinthrough.test.UnitTester#test()
+     */
     @Override
     public void test() {
         testForValue(0);

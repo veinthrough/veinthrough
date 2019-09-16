@@ -17,9 +17,9 @@ import com.google.common.collect.Lists;
  * <p>
  * Test contains:
  * <p>
- * 1. How to write a effective Enum class.
+ * 1. How to write a effective enum class.
  * <p>
- * 2. How to use Enum in switch.
+ * 2. How to use enum in switch.
  *
  */
 @Deprecated
