@@ -10,12 +10,13 @@ import veinthrough.test.AbstractUnitTester;
 /**
  * @author veinthrough
  *
- * pattern:
- * <p>
+ * <p>pattern:
+ * <pre>
  * __%__________________________________________________________________________conversion_______
  *      |                  |   |        |  |         |  |    |                |              |
  *      |___param index__$_|   |__flag__|  |__width__|  |    |__.__precision__|              |
  *                                                      |_____t_____time conversion__________|
+ * </pre>
  *
  */
 public class PrintfTest extends AbstractUnitTester {
