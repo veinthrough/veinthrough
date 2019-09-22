@@ -126,7 +126,7 @@ public class SourceAndSink extends AbstractUnitTester {
     private void test4(String fileName) {
         File file = new File(fileName);
         try {
-            Resources.asByteSource(new URL("https://github.com/veinthrough/veinthrough/blob/master/README.md"))
+            Resources.asByteSource(new URL("https://issues.apache.org/jira/si/jira.issueviews:issue-xml/IMPALA-2983/IMPALA-2983.xml"))
                      .copyTo(Files.asByteSink(file));
         } catch (IOException e) {
             // TODO Auto-generated catch block
