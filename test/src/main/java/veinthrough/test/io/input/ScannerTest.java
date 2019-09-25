@@ -13,29 +13,22 @@ import veinthrough.test.resource.ResourceRetriever;
 
 /**
  * @author veinthrough
- * <p>
- * ---------------------------------------------------------
- * <p>
+ * <p>---------------------------------------------------------
+ * <pre>
  * Tests contains:
- * <p>
  * 1. standard input test.
- * <p>
  * 2. file input test with next()/ nextInt().
- * <p>
  * 3. file input test with nextLine()
- * <p>
- * ---------------------------------------------------------
- * <p>
+ * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
  * next() compared with nextLine():
- * <p>
  * 1. next() will trim whitespace before the valid chars.
- * <p>
  * 2. next() treat whitespace as spliter.
- * <p>
  * 3. nextLine() treat line.separator as spliter.
  * System.getProperty("line.separator")
- * <p>
  * 4. next() will never get whitespace as result.
+ * </pre>
  *
  */
 @RequiredArgsConstructor

@@ -26,27 +26,21 @@ import veinthrough.test.resource.ResourceRetriever;
 
 /**
  * @author veinthrough
- * <p>
- * ---------------------------------------------------------
- * <p>
+ * <p>---------------------------------------------------------
+ * <pre>
  * Guava source/sink abstract some common(general-purpose) operations
  * from different kinds of char/byte stream.
- * <p>
  * source operations: read()/hash()/readLines()/copyTo()/size()/isEmpty()/contentEquals()
- * <p>
  * sink operations: write()/writeFrom()/writeLines()
- * <p>
- * ---------------------------------------------------------
- * <p>
+ * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
  * Tests contains:
- * <p>
  * 1. char source, readLines().
- * <p>
  * 2. char source, read().
- * <p>
  * 3. byte source, hash().
- * <p>
  * 4. byte source, copyTo() and byte sink.
+ * </pre>
  *
  */
 @RequiredArgsConstructor
@@ -59,6 +53,7 @@ public class SourceAndSink extends AbstractUnitTester {
     @Override
     public void test() {
         try {
+            //convert resource name to exact file name in file system
             String fileName = resourceRetriever.getExactFileNameOfResource(
                     "resource_ResourceReader.properties");
 
