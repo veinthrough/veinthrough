@@ -15,7 +15,7 @@ import veinthrough.test.AbstractUnitTester;
  * <p>
  * skeleton:
  * <p>
- * 1. Can traverse list all the same when modifying(add/remove) the list.
+ * 1. Can traverse list still when modifying(add/remove) the list.
  */
 public class LinkedListTest extends AbstractUnitTester {
 
