@@ -13,12 +13,20 @@ import veinthrough.test.AbstractUnitTester;
  * @author veinthrough
  * <p>---------------------------------------------------------
  * <pre>
+ * constructors:
  * ByteArrayInputStream(byte buf[])
  * ByteArrayInputStream(byte buf[], int offset, int length)
- * ByteArrayOutputStream()
- * ByteArrayOutputStream(int size)
+ * ByteArrayOutputStream():
+ *   The buffer capacity is initially 32 bytes, though its size increases if necessary
+ * ByteArrayOutputStream(int size):
+ *   The buffer capacity is initialized as the specified size
  *
- * [Attention]：no byte array parameter in constructor
+ * [Attention]：no byte array parameter in ByteArrayOutputStream constructor.
+ * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
+ * APIs:
+ * 1. ByteArrayInputStream.available()/ByteArrayOutputStream.size()
  * </pre>
  * <p>---------------------------------------------------------
  * <pre>
@@ -34,11 +42,11 @@ import veinthrough.test.AbstractUnitTester;
 public class ByteArrayStreamTest extends AbstractUnitTester {
 
     // corresponding to "abcdefghijklmnopqrsttuvwxyz"
-    final byte[] LETTER_BYTE_ARRAY = {
+    private static final byte[] LETTER_BYTE_ARRAY = new byte[]{
             0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6E, 0x6F,
             0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A
             };
-    final int SIZE_EACH = 5;
+    private static final int SIZE_EACH = 5;
 
     /* (non-Javadoc)
      * @see veinthrough.test.UnitTester#test()
@@ -97,7 +105,6 @@ public class ByteArrayStreamTest extends AbstractUnitTester {
     private void writeTest() {
         //no byte array parameter in constructor
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
         //corresponding to "ABCDE"
         //write a single byte
         baos.write(0x41);

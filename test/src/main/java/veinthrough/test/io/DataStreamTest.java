@@ -26,6 +26,19 @@ import veinthrough.test.AbstractUnitTester;
  * </pre>
  * <p>---------------------------------------------------------
  * <pre>
+ * constructors:
+ * DataInputStream(InputStream in)
+ * DataOutputStream(OutputStream out)
+ * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
+ * APIs:
+ * 1. NO DataInputStream.available().
+ * 2. DataOutputStream.size():
+ *  the number of bytes written to this data output stream so far.
+ * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
  * Tests contains:
  * 1. read/write basic types
  * 2. writeUTF()/readUTF()

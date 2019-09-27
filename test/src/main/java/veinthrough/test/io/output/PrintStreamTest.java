@@ -36,7 +36,7 @@ import veinthrough.test.AbstractUnitTester;
  * </pre>
  * <p>---------------------------------------------------------
  * <pre>
- * PrintStream with DataOutputStream:
+ * PrintStream/DataOutputStream:
  * 1. PrintStream是输出时采用的是用户指定的编码(创建PrintStream时指定的)，若没有指定，则采用系统默认的字符编码。
  *  而DataOutputStream则采用的是UTF-8。
  * 2. DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配合使用：允许应用程序以与机器无关的方式从底层输入流中读写java数据类型。

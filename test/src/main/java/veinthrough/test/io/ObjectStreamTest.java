@@ -19,6 +19,18 @@ import veinthrough.test.io.Serializable.User;
  * @author veinthrough
  * <p>---------------------------------------------------------
  * <pre>
+ * constructors:
+ * ObjectInputStream(InputStream in)
+ * ObjectOutputStream(OutputStream out)
+ * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
+ * APIs:
+ * 1. NO ObjectInputStream.available()
+ * 2. NO ObjectOutputStream.size()
+ * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
  * Tests contains:
  * 1. handle basic types
  * 2. handle system-defined serializable types

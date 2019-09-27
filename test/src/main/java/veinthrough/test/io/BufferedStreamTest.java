@@ -17,13 +17,30 @@ import veinthrough.test.AbstractUnitTester;
  * @author veinthrough
  * <p>---------------------------------------------------------
  * <pre>
+ * constructors:
+ * BufferedInputStream(InputStream in):
+ *  default buffer size:8192
+ * BufferedInputStream(InputStream in, int size)
+ * BufferedOutputStream(OutputStream out):
+ *  default buffer size:8192
+ * BufferedOutputStream(OutputStream out, int size) *
+ * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
+ * APIs:
+ * 1. BufferedInputStream.available():
+ *  only available bytes in buffer, not the available bytes of the whold bottom-layer stream.
+ * 2. NO BufferedOutputStream.size().
+ * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
  * Tests contains:
  * 1. write and read
  * 2. write then flush and read
  * 3. mark/reset in read which is the same as ByteArrayInputStream
  * </pre>
  * <p>As mark/reset:
- * @see veinthrough.test.io.input.ByteArrayInputStreamTest#test()
+ * @see veinthrough.test.io.input.ByteArrayStreamTest#readTest()
  *
  */
 public class BufferedStreamTest extends AbstractUnitTester {
@@ -52,7 +69,7 @@ public class BufferedStreamTest extends AbstractUnitTester {
          *  5 bytes available.
          *  5 bytes read: klmno
          */
-        test1();
+        autoFlushTest();
         /*
          * 5 bytes Written: abcde
          *  5 bytes available.
@@ -65,14 +82,15 @@ public class BufferedStreamTest extends AbstractUnitTester {
          *  5 bytes read: klmno
          *  0 bytes available.
          */
-        test2();
+        manualFlushTest();
     }
 
-    public void test1() {
+    public void autoFlushTest() {
         try(BufferedOutputStream bos = new BufferedOutputStream(
                 new FileOutputStream(fileName), SIZE_BUFFER);
             BufferedInputStream bis = new BufferedInputStream(
                 new FileInputStream(fileName))) {
+
             for(int i=0; i<SIZE_BUFFER/SIZE_EACH+1; i++) {
                 //write
                 byte[] written = Arrays.copyOfRange(LETTER_BYTE_ARRAY, i*SIZE_EACH, (i+1)*SIZE_EACH);
@@ -106,7 +124,7 @@ public class BufferedStreamTest extends AbstractUnitTester {
         }
     }
 
-    public void test2() {
+    public void manualFlushTest() {
         try(BufferedOutputStream bos = new BufferedOutputStream(
                 new FileOutputStream(fileName), SIZE_BUFFER);
             BufferedInputStream bis = new BufferedInputStream(
