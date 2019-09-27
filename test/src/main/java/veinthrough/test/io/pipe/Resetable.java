@@ -1,5 +1,5 @@
 package veinthrough.test.io.pipe;
 
-public interface Resetable {
-    void reset();
+public interface Resetable<T> {
+    void reset(T value);
 }
