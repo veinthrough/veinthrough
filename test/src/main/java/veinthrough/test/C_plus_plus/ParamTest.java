@@ -4,17 +4,17 @@
 package veinthrough.test.C_plus_plus;
 
 import veinthrough.test.AbstractUnitTester;
+import veinthrough.test.lombok.Employee;
 
 /**
  * @author veinthrough
- * <p>
+ * <p>---------------------------------------------------------
+ * <pre>
  * This program demonstrates parameter passing in Java, contains:
- * <p>
  * 1. Methods can't modify numeric parameters.
- * <p>
  * 2. Methods can change the state of object parameters.
- * <p>
  * 3. Methods can't attach new objects to object parameters, that is, can't swap object parameters.
+ * </pre>
  *
  */
 public class ParamTest extends AbstractUnitTester {
@@ -37,7 +37,7 @@ public class ParamTest extends AbstractUnitTester {
          * Test 2: Methods can change the state of object parameters
          */
         System.out.println("\nTesting tripleSalary:");
-        Employee harry = new Employee("Harry", 50000);
+        Employee harry = new Employee("Harry", 50000D, 2019, 9, 9);
         System.out.println("Before: salary=" + harry.getSalary());
         tripleSalary(harry);
         System.out.println("After: salary=" + harry.getSalary());
@@ -46,8 +46,8 @@ public class ParamTest extends AbstractUnitTester {
          * Test 3: Methods can't attach new objects to object parameters, that is, can't swap object parameters.
          */
         System.out.println("\nTesting swap:");
-        Employee a = new Employee("Alice", 70000);
-        Employee b = new Employee("Bob", 60000);
+        Employee a = new Employee("Alice", 70000D, 2019, 9, 9);
+        Employee b = new Employee("Bob", 60000D, 2019, 9, 9);
         System.out.println("Before: a=" + a.getName());
         System.out.println("Before: b=" + b.getName());
         swap(a, b);
@@ -78,33 +78,5 @@ public class ParamTest extends AbstractUnitTester {
 
     public static void main(String[] args) {
         new ParamTest().test();
-    }
-
-    class Employee // simplified Employee class
-    {
-        private String name;
-        private double salary;
-
-        public Employee(String n, double s)
-        {
-            name = n;
-            salary = s;
-        }
-
-        public String getName()
-        {
-            return name;
-        }
-
-        public double getSalary()
-        {
-            return salary;
-        }
-
-        public void raiseSalary(double byPercent)
-        {
-            double raise = salary * byPercent / 100;
-            salary += raise;
-        }
     }
 }
