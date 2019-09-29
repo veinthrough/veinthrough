@@ -36,9 +36,12 @@ import veinthrough.test.AbstractUnitTester;
  * APIs:
  * 1. InputStreamReader.ready()/ NO OutputStreamWriter.size()
  * </pre>
+ * <p>---------------------------------------------------------
+ * <pre>
  * Tests contains:
  * 1. Used different charsets in OutputStreamWriter/InputStreamReader
  * US_ASCII can't encoding 中文
+ * </pre>
  *
  */
 public class StreamRWTest extends AbstractUnitTester {
@@ -58,7 +61,6 @@ public class StreamRWTest extends AbstractUnitTester {
     @SuppressWarnings("unused")
     @Override
     public void test() {
-        Map<String,Charset> temp = Charset.availableCharsets();
         _test(DEFAULT_CHARSET);
         _test(GB2312);
         _test(GBK);
