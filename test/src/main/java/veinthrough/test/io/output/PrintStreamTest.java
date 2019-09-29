@@ -11,6 +11,7 @@ import veinthrough.test.AbstractUnitTester;
 
 /**
  * @author veinthrough
+ * @see veinthrough.test.io.output.PrintWriter
  * <p>---------------------------------------------------------
  * <pre>
  * PrintStream:
@@ -28,7 +29,7 @@ import veinthrough.test.AbstractUnitTester;
  *  PrintStream(OutputStream out)
  *  PrintStream(OutputStream out, boolean autoFlush)
  *  PrintStream(OutputStream out, boolean autoFlush, String encoding)
- * 2. no auto-flush with file, will automaticall create FileOutputStream
+ * 2. no auto-flush parameter coordinated with file parameter, will automatically create FileOutputStream
  *  PrintStream(String fileName)
  *  PrintStream(String fileName, String charSetName)
  *  PrintStream(File file)
@@ -47,7 +48,7 @@ import veinthrough.test.AbstractUnitTester;
  * <pre>
  * Tests contains:
  * 1. new a PrintStream by a file name and charset.
- * 2. check error.
+ * 2. write chinese string and check error.
  * </pre>
  */
 public class PrintStreamTest extends AbstractUnitTester {
