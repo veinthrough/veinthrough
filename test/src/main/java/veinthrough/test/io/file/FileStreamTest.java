@@ -3,6 +3,8 @@
  */
 package veinthrough.test.io.file;
 
+import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -19,6 +21,9 @@ import veinthrough.test.AbstractUnitTester;
  * FileOutputStream(String path)
  * FileOutputStream(String path, boolean append)
  * FileOutputStream(FileDescriptor fd)
+ * FileInputStream(String name)
+ * FileInputStream(File file)
+ * FileInputStream(FileDescriptor fd)
  * </pre>
  * <p>---------------------------------------------------------
  * <pre>

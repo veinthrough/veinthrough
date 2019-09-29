@@ -71,7 +71,7 @@ public class PipeTest extends AbstractUnitTester {
             }
             @Override
             public void onFailure(Throwable t) {
-                System.out.printf("Sender[%s] failed as %s.\n", mode, t.getMessage());
+                System.out.printf("Sender[%s] failed as %s.\n", mode, t.getClass().getSimpleName());
             }
         });
         //start receiver
@@ -82,7 +82,7 @@ public class PipeTest extends AbstractUnitTester {
             }
             @Override
             public void onFailure(Throwable t) {
-                System.out.printf("Receiver[%s] failed as %s.\n", mode, t.getCause());
+                System.out.printf("Receiver[%s] failed as %s.\n", mode, t.getClass().getSimpleName());
             }
         });
     }

@@ -24,10 +24,12 @@ import veinthrough.test.io.pipe.PipeTest.TEST_MODE;
  * 3.PipedInputStream(PipedOutputStream src):
  *  default pipe buffer size is 1024
  * 4.PipedInputStream(PipedOutputStream src, int pipeSize)
+ * PipedReader is the same as PipedInputStream
  *
  * 1.PipedOutputStream()
  * 2.PipedOutputStream(PipedInputStream snk)
  *  PipedOutputStream没有buf
+ * PipedWriter is the same as PipedOutputStream
  * </pre>
  * <p>---------------------------------------------------------
  * <pre>

@@ -24,16 +24,21 @@ import lombok.Getter;
  * 3.PipedInputStream(PipedOutputStream src):
  *  default pipe buffer size is 1024
  * 4.PipedInputStream(PipedOutputStream src, int pipeSize)
+ * PipedReader is the same as PipedInputStream
+ *
  * 1.PipedOutputStream()
  * 2.PipedOutputStream(PipedInputStream snk)
+ *  PipedOutputStream没有buf
+ * PipedWriter is the same as PipedOutputStream
  * </pre>
  * <p>---------------------------------------------------------
  * <pre>
  * APIs:
  * 1. read()/receive():receive()为非public，read()为public；并且从构造函数看PipedOutputStream没有buf，实际上基本所有的任务都是
  *  PipedInputStream来完成的，PipedOutputStream.write()实际上调用了连接的PipedInputStream.receive().
- * 2. PipedInputStream.available()
- * 3. NO PipedOutputStream.size()
+ * 2. read() is a block-version.
+ * 3. PipedInputStream.available()
+ * 4. NO PipedOutputStream.size()
  * </pre>
  * <p>---------------------------------------------------------
  * <pre>
