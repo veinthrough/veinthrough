@@ -1,7 +1,7 @@
 /**
  *
  */
-package veinthrough.test.io;
+package veinthrough.test.io.file;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import veinthrough.test.AbstractUnitTester;
+import veinthrough.test.io.StreamRWTest;
 
 /**
  * @author veinthrough
