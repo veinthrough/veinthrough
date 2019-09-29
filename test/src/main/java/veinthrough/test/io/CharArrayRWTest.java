@@ -11,6 +11,7 @@ import veinthrough.test.AbstractUnitTester;
 
 /**
  * @author veinthrough
+ * @see veinthrough.test.io.ByteArrayStreamTest
  * <p>---------------------------------------------------------
  * <pre>
  * constructors:

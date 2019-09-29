@@ -13,6 +13,7 @@ import veinthrough.test.AbstractUnitTester;
 /**
  * @author veinthrough
  * @see veinthrough.test.io.StreamRWTest
+ * @see veinthrough.test.io.file.FileStreamTest
  * <p>---------------------------------------------------------
  * <pre>
  * constructors:
@@ -32,6 +33,7 @@ import veinthrough.test.AbstractUnitTester;
  * <pre>
  * APIs:
  * 完全用OutputStreamWriter/InputStreamReader来实现
+ * 没有 FileReader.readLine()
  * </pre>
  *
  */

@@ -3,8 +3,6 @@
  */
 package veinthrough.test.io.file;
 
-import java.io.File;
-import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

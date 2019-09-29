@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
-import java.util.Map;
 
 import com.google.common.base.Charsets;
 
@@ -58,7 +57,6 @@ public class StreamRWTest extends AbstractUnitTester {
     /* (non-Javadoc)
      * @see veinthrough.test.UnitTester#test()
      */
-    @SuppressWarnings("unused")
     @Override
     public void test() {
         _test(DEFAULT_CHARSET);

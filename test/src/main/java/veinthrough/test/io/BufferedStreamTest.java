@@ -23,7 +23,7 @@ import veinthrough.test.AbstractUnitTester;
  * BufferedInputStream(InputStream in, int size)
  * BufferedOutputStream(OutputStream out):
  *  default buffer size:8192
- * BufferedOutputStream(OutputStream out, int size) *
+ * BufferedOutputStream(OutputStream out, int size)
  * </pre>
  * <p>---------------------------------------------------------
  * <pre>
@@ -51,7 +51,7 @@ public class BufferedStreamTest extends AbstractUnitTester {
             };
     private static final int SIZE_EACH = 5;
     private static final int SIZE_BUFFER =11;
-    private static final String fileName = "test/file3.txt";
+    private static final String fileName = "buffered_stream_test.txt";
 
     /* (non-Javadoc)
      * @see veinthrough.test.UnitTester#test()
@@ -89,18 +89,19 @@ public class BufferedStreamTest extends AbstractUnitTester {
         try(BufferedOutputStream bos = new BufferedOutputStream(
                 new FileOutputStream(fileName), SIZE_BUFFER);
             BufferedInputStream bis = new BufferedInputStream(
-                new FileInputStream(fileName))) {
+                new FileInputStream(fileName), SIZE_BUFFER)) {
 
             for(int i=0; i<SIZE_BUFFER/SIZE_EACH+1; i++) {
                 //write
                 byte[] written = Arrays.copyOfRange(LETTER_BYTE_ARRAY, i*SIZE_EACH, (i+1)*SIZE_EACH);
+                //will auto flush in the last round
                 bos.write(written);
                 System.out.printf("%d bytes Written: %s\n", SIZE_EACH, new String(written));
 
                 //read
                 int available = bis.available();
-                System.out.printf("    %d bytes available.\n", available);
                 if(available>0) {
+                    System.out.printf("    %d bytes available.\n", available);
                     byte[] read = new byte[available];
                     int len = bis.read(read, 0, available);
                     System.out.printf("    %d bytes read: %s\n", len, new String(read));
@@ -109,8 +110,8 @@ public class BufferedStreamTest extends AbstractUnitTester {
             //flush and read at last
             bos.flush();
             int available = bis.available();
-            System.out.printf("    %d bytes available.\n", available);
             if(available>0) {
+                System.out.printf("    %d bytes available.\n", available);
                 byte[] read = new byte[available];
                 int len = bis.read(read, 0, available);
                 System.out.printf("    %d bytes read: %s\n", len, new String(read));
@@ -128,18 +129,19 @@ public class BufferedStreamTest extends AbstractUnitTester {
         try(BufferedOutputStream bos = new BufferedOutputStream(
                 new FileOutputStream(fileName), SIZE_BUFFER);
             BufferedInputStream bis = new BufferedInputStream(
-                new FileInputStream(fileName))) {
+                new FileInputStream(fileName), SIZE_BUFFER)) {
             for(int i=0; i<SIZE_BUFFER/SIZE_EACH+1; i++) {
                 //write
                 byte[] written = Arrays.copyOfRange(LETTER_BYTE_ARRAY, i*SIZE_EACH, (i+1)*SIZE_EACH);
                 bos.write(written);
+                //manually flush
                 bos.flush();
                 System.out.printf("%d bytes Written: %s\n", SIZE_EACH, new String(written));
 
                 //read
                 int available = bis.available();
-                System.out.printf("    %d bytes available.\n", available);
                 if(available>0) {
+                    System.out.printf("    %d bytes available.\n", available);
                     byte[] read = new byte[available];
                     int len = bis.read(read, 0, available);
                     System.out.printf("    %d bytes read: %s\n", len, new String(read));
@@ -148,8 +150,8 @@ public class BufferedStreamTest extends AbstractUnitTester {
             //flush and read at last
             bos.flush();
             int available = bis.available();
-            System.out.printf("    %d bytes available.\n", available);
             if(available>0) {
+                System.out.printf("    %d bytes available.\n", available);
                 byte[] read = new byte[available];
                 int len = bis.read(read, 0, available);
                 System.out.printf("    %d bytes read: %s\n", len, new String(read));
