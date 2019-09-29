@@ -13,9 +13,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
+import java.util.TimeZone;
+
 import com.google.common.collect.Lists;
 import veinthrough.test.AbstractUnitTester;
-import veinthrough.test.string.DateFormatTest;
+import veinthrough.test.util.DateFormatTest;
 
 /**
  * @author veinthrough
@@ -48,6 +50,8 @@ import veinthrough.test.string.DateFormatTest;
  */
 @SuppressWarnings("unused")
 public class FileTest extends AbstractUnitTester {
+    private static final TimeZone SHANG_HAI = TimeZone.getTimeZone("Asia/Shanghai");
+    private static final String DEFAULT_DATE_PATTERN = "yyyy-MM-dd HH:mm:ss.SSS z";
 
     /* (non-Javadoc)
      * @see veinthrough.test.UnitTester#test()
@@ -182,7 +186,8 @@ public class FileTest extends AbstractUnitTester {
                 file.getPath(),
                 file.getAbsolutePath(),
                 file.getCanonicalPath(),
-                new DateFormatTest().formatDate(file.lastModified()));
+                new DateFormatTest().formatDate(
+                        file.lastModified(), DEFAULT_DATE_PATTERN, SHANG_HAI));
     }
 
     /*

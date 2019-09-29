@@ -9,7 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import veinthrough.test.AbstractUnitTester;
-import veinthrough.test.io.StreamRWTest;
 
 /**
  * @author veinthrough
