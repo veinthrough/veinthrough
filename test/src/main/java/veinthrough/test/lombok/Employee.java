@@ -1,17 +1,23 @@
-package veinthrough.test.temp;
+package veinthrough.test.lombok;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-@Data
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Employee
 {
-    private String name;
-    private double salary;
-    private Date hireDay;
+    @NonNull @Getter @Setter private String name;
+    @NonNull @Getter @Setter private Double salary;
+    @NonNull @Getter @Setter private Date hireDay;
+    @Getter @Setter private String hobby;
 
     public Employee(String n, double s, int year, int month, int day)
     {

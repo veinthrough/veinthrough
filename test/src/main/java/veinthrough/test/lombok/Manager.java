@@ -1,19 +1,34 @@
-package veinthrough.test.temp;
+package veinthrough.test.lombok;
 
-import lombok.Data;
+import java.util.Date;
 
-@Data
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
+
 public class Manager extends Employee
 {
-    private double bonus;
+    @NonNull @Getter @Setter private Double bonus;
 
     public Manager(String n, double s, int year, int month, int day)
     {
         super(n, s, year, month, day);
-        bonus = 0;
+        this.bonus = 0D;
     }
 
-    public double getSalary()
+    public Manager(String n, double s, Date date, Double bonus)
+    {
+        super(n, s, date);
+        this.bonus = bonus;
+    }
+
+    public Manager(String n, double s, Date date, String hobby, Double bonus)
+    {
+        super(n, s, date, hobby);
+        this.bonus = bonus;
+    }
+
+    public Double getSalary()
     {
         double baseSalary = super.getSalary();
         return baseSalary + bonus;
