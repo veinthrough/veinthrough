@@ -1,7 +1,7 @@
 /**
  *
  */
-package veinthrough.test.reflect;
+package veinthrough.test._class.reflect;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -12,11 +12,32 @@ import java.util.Scanner;
 import veinthrough.test.AbstractUnitTester;
 
 /**
+ * This class give a implementation of printing a class declaration by reflect
  * @author veinthrough
- *
- * This class conduct a test of printing a class declaration
+ * <p>---------------------------------------------------------
+ * <pre>
+ * APIs:
+ * [Class][static]Class<?> ClassforName(String className)
+ * [Class]        Class<? super T> getSuperclass()
+ * [Class]        String getName()/getSimpleName()
+ * [Class]        [native]int getModifiers()
+ * [Class]        Constructor<?>[] getDeclaredConstructors()/
+ *                Method[] getDeclaredMethods()
+ *                Field[] getDeclaredFields()
+ * [Constructor]        String getName()
+ * [Constructor]        int getModifiers()
+ * [Constructor]        Class<?>[] getParameterTypes()
+ * [Method]        String getName()
+ * [Method]        Class<?> getReturnType()
+ * [Method]        Class<?>[] getParameterTypes()
+ * [Method]        int getModifiers()
+ * [Field]        String getName()
+ * [Field]        Class<?> getType()
+ * [Field]        int getModifiers()
+ * [Modifier][static]String toString(int mod)
+ * </pre>
  */
-public class ReflectionTest extends AbstractUnitTester {
+public class ClassAnalyzer extends AbstractUnitTester {
 
     /* (non-Javadoc)
      * @see veinthrough.test.UnitTester#test()
@@ -126,7 +147,7 @@ public class ReflectionTest extends AbstractUnitTester {
     }
 
     public static void main(String[] args) {
-        new ReflectionTest().test();
+        new ClassAnalyzer().test();
     }
 
 }

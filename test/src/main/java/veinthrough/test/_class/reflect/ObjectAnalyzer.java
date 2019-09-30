@@ -1,7 +1,7 @@
 /**
  *
  */
-package veinthrough.test.reflect;
+package veinthrough.test._class.reflect;
 
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Array;
@@ -13,8 +13,19 @@ import java.util.List;
 import veinthrough.test.AbstractUnitTester;
 
 /**
+ * This class give a implementation of printing all fields and coordinated values of a object
  * @author veinthrough
- *
+ * <p>---------------------------------------------------------
+ * <pre>
+ * APIs:
+ * [Class]        native boolean isArray()
+ * [Class]        native Class<?> getComponentType():only be called by a array type
+ * [Class]        native boolean isPrimitive():是否是基本类型
+ * [Class]        Field[] getDeclaredFields()
+ * [Class]        native Class<? super T> getSuperclass()
+ * [Field]        Object get(Object obj):获取对象obj的field对应的域值
+ * [AccessibleObject][static]setAccessible(AccessibleObject[] array, boolean flag)
+ * </pre>
  */
 public class ObjectAnalyzer extends AbstractUnitTester {
 

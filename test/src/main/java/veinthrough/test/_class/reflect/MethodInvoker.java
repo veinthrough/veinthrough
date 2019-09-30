@@ -1,4 +1,4 @@
-package veinthrough.test.reflect;
+package veinthrough.test._class.reflect;
 
 import java.lang.reflect.*;
 
@@ -7,13 +7,20 @@ import veinthrough.test.AbstractUnitTester;
 /**
  * This program shows how to invoke methods through reflection.
  * @author veinthrough
+ * <p>---------------------------------------------------------
+ * <pre>
+ * APIs:
+ * [Class]        Method getMethod(String name, Class<?>... parameterTypes)
+ * [Method]        Object invoke(Object obj, Object... args):
+ *                  调用static函数的第一个参数为null，否则第一个参数为调用该方法的对象
+ * </pre>
  */
-public class MethodTableTest extends AbstractUnitTester {
+public class MethodInvoker extends AbstractUnitTester {
     @Override
     public void test() {
         // get method pointers to the square and sqrt methods
         try {
-            Method square = MethodTableTest.class.getMethod("square", double.class);
+            Method square = MethodInvoker.class.getMethod("square", double.class);
             Method sqrt = Math.class.getMethod("sqrt", double.class);
 
             // print tables of x- and y-values
@@ -27,7 +34,7 @@ public class MethodTableTest extends AbstractUnitTester {
     }
 
     public static void main(String[] args) throws NoSuchMethodException, SecurityException {
-        new MethodTableTest().test();
+        new MethodInvoker().test();
     }
 
     /**
