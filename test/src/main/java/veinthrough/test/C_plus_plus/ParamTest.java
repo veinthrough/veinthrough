@@ -4,7 +4,7 @@
 package veinthrough.test.C_plus_plus;
 
 import veinthrough.test.AbstractUnitTester;
-import veinthrough.test.lombok.Employee;
+import veinthrough.test._class.Employee;
 
 /**
  * @author veinthrough
@@ -37,7 +37,7 @@ public class ParamTest extends AbstractUnitTester {
          * Test 2: Methods can change the state of object parameters
          */
         System.out.println("\nTesting tripleSalary:");
-        Employee harry = new Employee("Harry", 50000D, 2019, 9, 9);
+        Employee harry = new Employee("Harry", 50000D);
         System.out.println("Before: salary=" + harry.getSalary());
         tripleSalary(harry);
         System.out.println("After: salary=" + harry.getSalary());
@@ -46,8 +46,8 @@ public class ParamTest extends AbstractUnitTester {
          * Test 3: Methods can't attach new objects to object parameters, that is, can't swap object parameters.
          */
         System.out.println("\nTesting swap:");
-        Employee a = new Employee("Alice", 70000D, 2019, 9, 9);
-        Employee b = new Employee("Bob", 60000D, 2019, 9, 9);
+        Employee a = new Employee("Alice", 70000D);
+        Employee b = new Employee("Bob", 60000D);
         System.out.println("Before: a=" + a.getName());
         System.out.println("Before: b=" + b.getName());
         swap(a, b);

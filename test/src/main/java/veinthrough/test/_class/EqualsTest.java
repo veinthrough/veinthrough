@@ -1,8 +1,6 @@
-package veinthrough.test.equals;
+package veinthrough.test._class;
 
 import veinthrough.test.AbstractUnitTester;
-import veinthrough.test.temp.Employee;
-import veinthrough.test.temp.Manager;
 
 /**
  * This program demonstrates the equals method.
@@ -15,10 +13,10 @@ public class EqualsTest extends AbstractUnitTester {
      */
     @Override
     public void test() {
-        Employee alice1 = new Employee("Alice Adams", 75000, 1987, 12, 15);
+        Employee alice1 = new Employee("Alice Adams", 75000D);
         Employee alice2 = alice1;
-        Employee alice3 = new Employee("Alice Adams", 75000, 1987, 12, 15);
-        Employee bob = new Employee("Bob Brandson", 50000, 1989, 10, 1);
+        Employee alice3 = new Employee("Alice Adams", 75000D);
+        Employee bob = new Employee("Bob Brandson", 50000D);
 
         System.out.println("alice1 == alice2: " + (alice1 == alice2));
 
@@ -30,9 +28,9 @@ public class EqualsTest extends AbstractUnitTester {
 
         System.out.println("bob.toString(): " + bob);
 
-        Manager carl = new Manager("Carl Cracker", 80000, 1987, 12, 15);
-        Manager boss = new Manager("Carl Cracker", 80000, 1987, 12, 15);
-        boss.setBonus(5000);
+        Manager carl = new Manager("Carl Cracker", 80000D, 80000D);
+        Manager boss = new Manager("Carl Cracker", 80000D, 80000D);
+        boss.setBonus(5000D);
         System.out.println("boss.toString(): " + boss);
         System.out.println("carl.equals(boss): " + carl.equals(boss));
         System.out.println("alice1.hashCode(): " + alice1.hashCode());
