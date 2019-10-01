@@ -21,7 +21,7 @@ import lombok.Setter;
 //@Data包括@RequiredArgsConstructor?
 @RequiredArgsConstructor
 @AllArgsConstructor()
-public class Employee
+public class Employee implements Comparable<Employee>, Cloneable
 {
     @Getter private static final AtomicLong NEXT_ID;
 
@@ -129,5 +129,21 @@ public class Employee
     {
         return getClass().getName() + "[name=" + name + ",salary=" + salary + ",hireDay=" + hireDay
             + "]";
+    }
+
+    //1. 如果子类之间的比较含义不一样，那父类/子类就属于不同类对象的非法比较；
+    //那么父类和子类每个compareTo()都应该在开始进行getClass()==other.getClass()的比较
+    //2. 如果在父类和子类中存在通用的比较方法，则应该在父类中提供一个compareTo方法，
+    //并声明为final；将方法和类声明为final的主要目的是：确保他们不会再子类中改变语义。
+    @Override
+    final public int compareTo(Employee other) {
+        return Double.compare(getSalary(), other.getSalary());
+    }
+
+    public Employee clone() throws CloneNotSupportedException {
+        Employee cloned = (Employee) super.clone();
+        cloned.hireDay.setTime(hireDay.getTime());
+        return cloned;
+
     }
 }
