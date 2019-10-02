@@ -120,6 +120,10 @@ public class CalendarTest extends AbstractUnitTester {
         return calendar;
     }
 
+    public Calendar nextCalendar(int field, long time) {
+        return getCalendar(next(field, time));
+    }
+
     public long next(int field, long time) {
         Calendar calendar = getCalendar(time);
         calendar.add(field, 1);
