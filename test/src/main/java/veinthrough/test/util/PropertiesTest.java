@@ -18,6 +18,12 @@ import veinthrough.test.AbstractUnitTester;
  * Test for Properties.
  * @author veinthrough
  * <p>---------------------------------------------------------
+ * </pre>
+ * Disadvantage:
+ *  1. 没有标准的为配置文件命名的规则，容易造成配置文件名冲突。
+ *  2. （似乎）只能处理字符串类型
+ * </pre>
+ * <p>---------------------------------------------------------
  * <pre>
  * Constructs:
  *  Properties()
@@ -28,12 +34,13 @@ import veinthrough.test.AbstractUnitTester;
  * Tests contains:
  * 1. get/put
  * 2. load/store
- * 3. 使用二级属性映射来实现默认属性
+ * 3. 使用二级属性映射来实现默认属性；也可以get时给一个默认值
  * </pre>
  *
  */
 public class PropertiesTest extends AbstractUnitTester {
-    private static final String fileName = "properties_test.txt";
+    private static final String DIR_NAME = "properties";
+    private static final String FILE_NAME = "properties_test.xml";
     private static final int DEFAULT_LEFT = 0;
     private static final int DEFAULT_TOP = 0;
     private static final int DEFAULT_WIDTH = 300;
@@ -58,21 +65,20 @@ public class PropertiesTest extends AbstractUnitTester {
         properties = new Properties(defaultProperties());
         
         String userDir = System.getProperty("user.home");
-        File propertiesDir = new File(userDir, "properties");
+        File propertiesDir = new File(userDir, DIR_NAME);
         if(!propertiesDir.exists()) {
             propertiesDir.mkdir();
         }
-        File propertiesFile = new File(propertiesDir, fileName);
+        File propertiesFile = new File(propertiesDir, FILE_NAME);
         
-        //load test
         load(propertiesFile);
         modify();
-        //store test
         store(propertiesFile);        
     }
     
     private Properties defaultProperties() {
         Properties defaultProperties = new Properties();
+        //只能put字符串类型
         defaultProperties.put("left", ""+DEFAULT_LEFT);
         defaultProperties.put("top", ""+DEFAULT_TOP);
         defaultProperties.put("width", ""+DEFAULT_WIDTH);
@@ -89,6 +95,7 @@ public class PropertiesTest extends AbstractUnitTester {
             properties.load(fis);
             
             //if property isn't loaded, it will get from defaults
+            //只能get字符串类型然后转换
             x = Integer.parseInt(properties.getProperty("left"));
             System.out.printf("left: %d\n", x);
             y = Integer.parseInt(properties.getProperty("top"));
